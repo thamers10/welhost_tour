@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WelHost Tours</title>
+  <!-- Bootstrap CDN (HTTPS for security) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1srYm5OeDdkk8cqKEdvppjublE0z7Xv5UZUd++q1doxu2ERxOzprp3m8g5wljqt" crossorigin="anonymous">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">WelHost Tours</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Main Menu -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
+          </li>
+
+          <!-- Regions Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="regionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              المناطق
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="regionsDropdown">
+              <!-- TODO: Generate dynamically (e.g., via Jinja2, React, or a templating engine) -->
+              <li><a class="dropdown-item" href="regions/riyadh.html">الرياض</a></li>
+              <li><a class="dropdown-item" href="regions/jeddah.html">جدة</a></li>
+              <li><a class="dropdown-item" href="regions/eastern.html">المنطقة الشرقية</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">عن الموقع</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">تواصل معنا</a>
+          </li>
+        </ul>
+
+        <!-- Search Form (sanitized on backend) -->
+        <form class="d-flex" role="search" method="GET" action="/search">
+          <input class="form-control me-2" type="search" name="q" placeholder="ابحث عن مرشد" aria-label="Search" required>
+          <button class="btn btn-outline-success" type="submit">بحث</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bootstrap Bundle JS (with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-FcVxE8k0vnyQd6p7uKXlX9InCkYyx/jaEe6cEwUMA0x1J2FJ7xFdYNnH6rJKYlkK" crossorigin="anonymous"></script>
+</body>
+</html>

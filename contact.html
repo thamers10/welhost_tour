@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تواصل معنا | WelHost Tours</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- الشريط العلوي -->
+  <div id="header-placeholder"></div>
+
+  <main class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">تواصل معنا</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="list-group">
+          <div class="list-group-item">
+            📧 البريد الإلكتروني: <a href="mailto:support@welhost.tours">support@welhost.tours</a>
+          </div>
+          <div class="list-group-item">
+            ☎️ الهاتف: <a href="tel:+966500000000">+966 50 000 0000</a>
+          </div>
+          <div class="list-group-item">
+            📍 الموقع: الرياض - المملكة العربية السعودية
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="index.html" class="btn btn-secondary">العودة للرئيسية</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- التذييل -->
+  <div id="footer-placeholder"></div>
+
+  <!-- تحميل الهيدر والفوتر -->
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header-placeholder').innerHTML = data);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+  </script>
+
+</body>
+</html>
