@@ -5,123 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>الرئيسية - WelHost Tours</title>
+
+  <!-- Bootstrap RTL & Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- ملفّاتك الخارجية -->
   <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
-    /* أنماط مخصصة مدمجة */
+    /* ========================  HERO  ======================== */
     .hero-section {
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/img/hero-bg.jpg') no-repeat center center;
-      background-size: cover;
-      padding: 120px 0;
-      color: white;
+      position: relative;
+      height: 100vh;                /* يشغل الشاشة كاملة */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
     }
-    
+    .hero-section video {
+      position: absolute;
+      top: 0; left: 0;
+      min-width: 100%; min-height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.5);   /* خففت التعتيم قليلاً */
+      z-index: 1;
+    }
+    .hero-content {                 /* محتوى النص / البحث */
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ========================  COMPONENTS  ======================== */
     .region-card {
-      transition: transform 0.3s;
+      transition: transform .3s;
       border-radius: 10px;
       overflow: hidden;
       margin-bottom: 20px;
     }
-    
-    .region-card:hover {
-      transform: translateY(-10px);
-    }
-    
-    .region-card img {
-      transition: transform 0.5s;
-    }
-    
-    .region-card:hover img {
-      transform: scale(1.1);
-    }
-    
+    .region-card:hover       { transform: translateY(-10px); }
+    .region-card img         { transition: transform .5s; }
+    .region-card:hover img   { transform: scale(1.1); }
+
     .guide-card {
       border: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,.1);
+      transition: all .3s;
     }
-    
     .guide-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,.2);
     }
-    
     .guide-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #ffc107;
-      color: #000;
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 14px;
+      position: absolute; top: 10px; left: 10px;
+      background: #ffc107; color: #000;
+      padding: 5px 15px; border-radius: 20px;
+      font-size: 14px; font-weight: bold;
     }
-    
-    .step-icon {
-      font-size: 2.5rem;
-      color: #0d6efd;
-      margin-bottom: 15px;
-    }
-    
-    .testimonial-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 15px;
-      border: 3px solid #0d6efd;
-    }
-    
-    .rating {
-      color: #ffc107;
-      margin-bottom: 10px;
-    }
-    
-    .search-form .input-group {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .search-form .form-control {
-      border-right: 0;
-    }
-    
-    .search-form .btn {
-      border-left: 0;
-    }
+    .step-icon       { font-size: 2.5rem; color: #0d6efd; margin-bottom: 15px; }
+    .testimonial-img { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 15px; border: 3px solid #0d6efd; }
+    .rating          { color: #ffc107; margin-bottom: 10px; }
+
+    .search-form .input-group { box-shadow: 0 5px 15px rgba(0,0,0,.1); }
+    .search-form .form-control { border-right: 0; }
+    .search-form .btn          { border-left: 0; }
   </style>
 </head>
-<body> style="padding-top: 70px;">
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
+<body style="padding-top: 70px;">
+  <!-- ========================  NAVBAR  ======================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <i class="bi bi-compass me-2"></i>WelHost Tours
-      </a>
+      <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
+  <img src="logo.png" alt="WelHost Logo" class="ms-2" style="height:40px;">
+  <span>WelHost Tours</span>
+</a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">الرئيسية</a>
-
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">المناطق</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">المرشدون</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">حولنا</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">اتصل بنا</a>
-
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">المناطق</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">المرشدون</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">حولنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
         </ul>
         <div class="d-flex">
           <a href="#" class="btn btn-outline-light me-2">تسجيل دخول</a>
@@ -131,27 +108,29 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- ========================  HERO (Video)  ======================== -->
   <section class="hero-section">
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h1 class="display-4 fw-bold mb-4">اكتشف المملكة مع مرشدين سياحيين معتمدين</h1>
-          <p class="lead mb-5">خبراء محليون يأخذك في رحلة لا تنسى إلى كنوز المملكة العربية السعودية</p>
-          <form class="search-form" action="/search" method="GET">
-            <div class="input-group">
-              <input type="search" name="q" class="form-control form-control-lg" placeholder="ابحث باسم المنطقة أو المرشد..." required>
-              <button type="submit" class="btn btn-primary px-4">
-                <i class="bi bi-search me-2"></i>بحث
-              </button>
-            </div>
-          </form>
+    <video preload="auto" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
+      <source src="vid.mp4" type="video/mp4">
+
+      متصفحك لا يدعم تشغيل الفيديو.
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <h1 class="display-4 fw-bold mb-4">اكتشف المملكة مع مرشدين سياحيين معتمدين</h1>
+      <p class="lead mb-5">خبراء محليون يأخذك في رحلة لا تنسى إلى كنوز المملكة العربية السعودية</p>
+
+      <form class="search-form" action="/search" method="GET">
+        <div class="input-group">
+          <input type="search" name="q" class="form-control form-control-lg" placeholder="ابحث باسم المنطقة أو المرشد..." required>
+          <button type="submit" class="btn btn-primary px-4"><i class="bi bi-search me-2"></i>بحث</button>
         </div>
-      </div>
+      </form>
     </div>
   </section>
 
-  <!-- Regions Section -->
+  <!-- ========================  REGIONS  ======================== -->
   <section class="py-5 bg-white">
     <div class="container">
       <div class="text-center mb-5">
@@ -159,6 +138,7 @@
         <p class="text-muted">اختر وجهتك القادمة واكتشف أفضل المرشدين السياحيين</p>
       </div>
       <div class="row g-4">
+        <!-- الرياض -->
         <div class="col-md-4">
           <div class="card region-card h-100 border-0">
             <img src="assets/img/regions/riyadh.jpg" class="card-img-top" alt="الرياض">
@@ -169,6 +149,7 @@
             </div>
           </div>
         </div>
+        <!-- جدة -->
         <div class="col-md-4">
           <div class="card region-card h-100 border-0">
             <img src="assets/img/regions/jeddah.jpg" class="card-img-top" alt="جدة">
@@ -179,6 +160,7 @@
             </div>
           </div>
         </div>
+        <!-- الشرقية -->
         <div class="col-md-4">
           <div class="card region-card h-100 border-0">
             <img src="assets/img/regions/eastern.jpg" class="card-img-top" alt="المنطقة الشرقية">
@@ -196,7 +178,7 @@
     </div>
   </section>
 
-  <!-- Featured Guides -->
+  <!-- ========================  FEATURED GUIDES  ======================== -->
   <section class="py-5 bg-light">
     <div class="container">
       <div class="text-center mb-5">
@@ -204,6 +186,7 @@
         <p class="text-muted">تعرف على أفضل المرشدين السياحيين المعتمدين لدينا</p>
       </div>
       <div class="row g-4">
+        <!-- Guide 1 -->
         <div class="col-lg-3 col-md-6">
           <div class="card guide-card h-100 position-relative">
             <span class="guide-badge">مميز</span>
@@ -212,17 +195,14 @@
               <h5 class="card-title">أحمد السديري</h5>
               <p class="text-muted">مرشد معتمد في الرياض</p>
               <div class="rating mb-3">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
                 <span class="me-2">4.7</span>
               </div>
               <a href="guides/ahmed.html" class="btn btn-outline-primary w-100">عرض الملف</a>
             </div>
           </div>
         </div>
+        <!-- Guide 2 -->
         <div class="col-lg-3 col-md-6">
           <div class="card guide-card h-100">
             <img src="assets/img/guides/guide2.jpg" class="card-img-top" alt="مرشد سياحي">
@@ -230,36 +210,30 @@
               <h5 class="card-title">سارة الغامدي</h5>
               <p class="text-muted">مرشدة معتمدة في جدة</p>
               <div class="rating mb-3">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 <span class="me-2">5.0</span>
               </div>
               <a href="guides/sarah.html" class="btn btn-outline-primary w-100">عرض الملف</a>
             </div>
           </div>
         </div>
+        <!-- Guide 3 -->
         <div class="col-lg-3 col-md-6">
-          <div class="card guide-card h-100">
+          <div class="card guide-card h-100 position-relative">
             <span class="guide-badge">جديد</span>
             <img src="assets/img/guides/guide3.jpg" class="card-img-top" alt="مرشد سياحي">
             <div class="card-body text-center">
               <h5 class="card-title">خالد الفهيد</h5>
               <p class="text-muted">مرشد معتمد في الشرقية</p>
               <div class="rating mb-3">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
                 <span class="me-2">4.2</span>
               </div>
               <a href="guides/khaled.html" class="btn btn-outline-primary w-100">عرض الملف</a>
             </div>
           </div>
         </div>
+        <!-- Guide 4 -->
         <div class="col-lg-3 col-md-6">
           <div class="card guide-card h-100">
             <img src="assets/img/guides/guide4.jpg" class="card-img-top" alt="مرشد سياحي">
@@ -267,11 +241,7 @@
               <h5 class="card-title">نورة العتيبي</h5>
               <p class="text-muted">مرشدة معتمدة في المدينة</p>
               <div class="rating mb-3">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
                 <span class="me-2">4.0</span>
               </div>
               <a href="guides/nora.html" class="btn btn-outline-primary w-100">عرض الملف</a>
@@ -279,13 +249,11 @@
           </div>
         </div>
       </div>
-      <div class="text-center mt-5">
-        <a href="#" class="btn btn-primary px-4">عرض جميع المرشدين</a>
-      </div>
+      <div class="text-center mt-5"><a href="#" class="btn btn-primary px-4">عرض جميع المرشدين</a></div>
     </div>
   </section>
 
-  <!-- How It Works -->
+  <!-- ========================  HOW IT WORKS  ======================== -->
   <section class="py-5 bg-white">
     <div class="container">
       <div class="text-center mb-5">
@@ -293,38 +261,26 @@
         <p class="text-muted">3 خطوات بسيطة لحجز مرشدك السياحي</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="text-center p-4 h-100">
-            <div class="step-icon">
-              <i class="bi bi-search"></i>
-            </div>
-            <h5 class="mb-3">ابحث عن المرشد</h5>
-            <p class="text-muted">ابحث باستخدام المنطقة أو نوع الجولة أو اسم المرشد</p>
-          </div>
+        <div class="col-md-4 text-center p-4">
+          <div class="step-icon"><i class="bi bi-search"></i></div>
+          <h5 class="mb-3">ابحث عن المرشد</h5>
+          <p class="text-muted">ابحث باستخدام المنطقة أو نوع الجولة أو اسم المرشد</p>
         </div>
-        <div class="col-md-4">
-          <div class="text-center p-4 h-100">
-            <div class="step-icon">
-              <i class="bi bi-person-check"></i>
-            </div>
-            <h5 class="mb-3">اختر المرشد المناسب</h5>
-            <p class="text-muted">اطلع على الملف الشخصي والتقييمات واختر الأنسب لك</p>
-          </div>
+        <div class="col-md-4 text-center p-4">
+          <div class="step-icon"><i class="bi bi-person-check"></i></div>
+          <h5 class="mb-3">اختر المرشد المناسب</h5>
+          <p class="text-muted">اطلع على الملف الشخصي والتقييمات واختر الأنسب لك</p>
         </div>
-        <div class="col-md-4">
-          <div class="text-center p-4 h-100">
-            <div class="step-icon">
-              <i class="bi bi-calendar-check"></i>
-            </div>
-            <h5 class="mb-3">احجز موعد الجولة</h5>
-            <p class="text-muted">تواصل مع المرشد مباشرة واحجز موعد الجولة</p>
-          </div>
+        <div class="col-md-4 text-center p-4">
+          <div class="step-icon"><i class="bi bi-calendar-check"></i></div>
+          <h5 class="mb-3">احجز موعد الجولة</h5>
+          <p class="text-muted">تواصل مع المرشد مباشرة واحجز موعد الجولة</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- ========================  TESTIMONIALS  ======================== -->
   <section class="py-5 bg-light">
     <div class="container">
       <div class="text-center mb-5">
@@ -334,17 +290,11 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <div class="bg-white p-4 rounded shadow-sm">
-            <div class="testimonial-img">
-              <img src="assets/img/testimonials/1.jpg" alt="عميل" class="img-fluid">
-            </div>
+            <div class="testimonial-img"><img src="assets/img/testimonials/1.jpg" alt="عميل" class="img-fluid"></div>
             <p class="lead text-center mb-4">"جولة رائعة مع المرشد محمد في جدة، أعطانا معلومات لم نكن نعرفها عن المدينة! التعامل كان محترفًا والجولة كانت منظمة جدًا."</p>
             <h5 class="text-center mb-1">سارة أحمد</h5>
             <div class="rating justify-content-center">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
             </div>
           </div>
         </div>
@@ -352,7 +302,7 @@
     </div>
   </section>
 
-  <!-- Call to Action -->
+  <!-- ========================  CALL TO ACTION  ======================== -->
   <section class="py-5 bg-primary text-white">
     <div class="container text-center">
       <h2 class="fw-bold mb-4">هل أنت مرشد سياحي؟</h2>
@@ -362,14 +312,13 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ========================  FOOTER  ======================== -->
   <footer class="bg-dark text-white py-5">
     <div class="container">
       <div class="row">
+        <!-- Intro -->
         <div class="col-lg-4 mb-4">
-          <h5 class="fw-bold mb-4">
-            <i class="bi bi-compass me-2"></i>WelHost Tours
-          </h5>
+          <h5 class="fw-bold mb-4"><i class="bi bi-compass me-2"></i>WelHost Tours</h5>
           <p>منصة سعودية متخصصة في ربط السائحين بالمرشدين السياحيين المعتمدين في جميع أنحاء المملكة العربية السعودية.</p>
           <div class="social-icons mt-4">
             <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
@@ -378,6 +327,7 @@
             <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
+        <!-- Quick Links -->
         <div class="col-lg-2 col-md-6 mb-4">
           <h5 class="fw-bold mb-4">روابط سريعة</h5>
           <ul class="list-unstyled">
@@ -388,6 +338,7 @@
             <li><a href="#" class="text-white text-decoration-none">اتصل بنا</a></li>
           </ul>
         </div>
+        <!-- Contact -->
         <div class="col-lg-3 col-md-6 mb-4">
           <h5 class="fw-bold mb-4">تواصل معنا</h5>
           <ul class="list-unstyled">
@@ -396,6 +347,7 @@
             <li><i class="bi bi-envelope me-2"></i> info@welhosttours.com</li>
           </ul>
         </div>
+        <!-- Newsletter -->
         <div class="col-lg-3 mb-4">
           <h5 class="fw-bold mb-4">النشرة البريدية</h5>
           <p>اشترك ليصلك كل جديد عن عروضنا وخدماتنا</p>
@@ -409,9 +361,7 @@
       </div>
       <hr class="my-4">
       <div class="row">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="mb-0">© 2023 WelHost Tours. جميع الحقوق محفوظة.</p>
-        </div>
+        <div class="col-md-6 text-center text-md-start"><p class="mb-0">© 2023 WelHost Tours. جميع الحقوق محفوظة.</p></div>
         <div class="col-md-6 text-center text-md-end">
           <a href="#" class="text-white text-decoration-none me-3">شروط الخدمة</a>
           <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a>
@@ -420,18 +370,15 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- ========================  SCRIPTS  ======================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // يمكنك إضافة أي جافاسكريبت مخصص هنا
-    document.addEventListener('DOMContentLoaded', function() {
-      // تنشيط عناصر القائمة عند التمرير
-      const navLinks = document.querySelectorAll('.nav-link');
-      
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          this.classList.add('active');
+    document.addEventListener('DOMContentLoaded', () => {
+      // تفعيل حالة الرابط النشط عند النقر
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
         });
       });
     });
